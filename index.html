@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UBMK 기도 편지 - 3월호</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --accent-color: #ef4444;
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .main-wrapper {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .glass-container {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('header.png') center/cover;
+            padding: 100px 40px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 1;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        main {
+            padding: 50px 40px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.6s ease-out forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes slideUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section.reverse {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .image-container {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .image-container:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .text-content {
+            padding: 20px 0;
+        }
+
+        .number-badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            word-break: keep-all;
+        }
+
+        .section-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            text-align: justify;
+            word-break: keep-all;
+        }
+
+        .prayer-card {
+            background: #f5f3ff;
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-top: 40px;
+            border: 2px solid #ddd6fe;
+            position: relative;
+        }
+
+        .prayer-card::before {
+            content: '📖';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            background: #f5f3ff;
+            padding: 0 15px;
+        }
+
+        .prayer-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #4338ca;
+            margin-bottom: 30px;
+        }
+
+        .prayer-list {
+            list-style: none;
+        }
+
+        .prayer-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd6fe;
+        }
+
+        .prayer-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .prayer-number {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: #4338ca;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+
+        .prayer-text {
+            font-size: 1rem;
+            color: var(--text-main);
+            font-weight: 400;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .section.reverse {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            main {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-wrapper">
+    <div class="glass-container">
+        <header>
+            <div class="header-content">
+                <h1>UBMK 기도 편지</h1>
+                <p>2026년 3월의 소식을 전합니다</p>
+            </div>
+        </header>
+
+        <main>
+            <!-- Section 01 -->
+            <div class="section">
+                <div class="image-container">
+                    <img src="01.jpg" alt="입학식">
+                </div>
+                <div class="text-content">
+                    <span class="number-badge">Issue 01</span>
+                    <h2 class="section-title">입학식 & 새친구 & 웰컴데이</h2>
+                    <p class="section-text">
+                        샬롬!! 3.2일 입학식을 했습니다. 아들 정인이는 한국에서 교육선교사로 오신 분이 담임선생님이 되었습니다. 입학식 이후에 저희 학교 유치원에 4살 도하가 왔습니다. 한 주 정도 엄마와 헤어질 때 한참을 울던 도하가 체육물품도 보내주고 같이 놀아 주면서 적응을 도왔는데 한 주 후 잘 지내는 모습에 감사했습니다. 또 4살 이쁜 지온이도 왔습니다. 3.12일에는 신입생, 신입교육선교사들을 위한 웰컴데이를 통해 마음껏 축복했습니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 02 -->
+            <div class="section reverse">
+                <div class="text-content" style="text-align: right;">
+                    <span class="number-badge" style="background: #10b981;">Issue 02</span>
+                    <h2 class="section-title">초등역사교실 & 방과후 축구와 태권도</h2>
+                    <p class="section-text" style="text-align: right;">
+                        전선교사는 작년에 국가기관에 신청한 역사체험교실이 당첨이 되어 초등역사체험교실을 열었습니다. 강선교사는 올해도 태권도 동아리를 열었는데 초등18명 중 9명이 신청을 하여 놀람으로 시작했고 방과후 축구는 4명이 신청하였습니다. 선교지학교에서는 다양한 수업에 대한 체험이 많지 않아 안타까운 현실인데 이들에게 작은 도움이라도 되면 좋겠습니다.
+                    </p>
+                </div>
+                <div class="image-container">
+                    <img src="02.jpg" alt="역사교실">
+                </div>
+            </div>
+
+            <!-- Section 03 -->
+            <div class="section">
+                <div class="image-container">
+                    <img src="03.jpg" alt="성품훈련">
+                </div>
+                <div class="text-content">
+                    <span class="number-badge" style="background: #f59e0b;">Issue 03</span>
+                    <h2 class="section-title">3월 성품 순종 & 신앙수련회</h2>
+                    <p class="section-text">
+                        저희 학교의 교훈은 ‘순종과 배려’입니다. 하나님을 사랑함은 그의 계명을 지키는 순종으로 나타나고, 이웃사랑은 배려로 나타내도록 교육하는 학교입니다. 3월 첫 수요채플 성품설교는 ‘깊은 데로 가서 그물을 내려 고기를 잡으라’는 주님이 말씀에 순종하여 빈 배가 두 배를 채우고 잠기게 되는 풍성한 은혜를 전했습니다. 초등신앙수련회는 ‘거룩한 백성, 거룩한 삶’(레11:45) 이란 주제로 우리의 정체성과 사명을 일깨우는 시간을 가졌습니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 04 -->
+            <div class="section reverse">
+                <div class="text-content" style="text-align: right;">
+                    <span class="number-badge" style="background: #8b5cf6;">Issue 04</span>
+                    <h2 class="section-title">임원선거 & 학부모모임 & 고난주간</h2>
+                    <p class="section-text" style="text-align: right;">
+                        학생회 임원선거가 있었습니다. 자유민주주의의 꽃인 투표를 배우는 소중한 시간이었습니다. 학부모모임은 교장선생님께서 올해 신규교육선교사들을 소개하고 학교의 방향을 말씀하신 후 각 과정모임을 통해 의견을 청취하는 시간을 가졌습니다. 올해 고난주간은 ‘너를 살리고자 내가 죽었음이라’는 말씀이 다가왔습니다. 내가 살고자 남을 밟는 세상의 풍조에 역행하는 제자로 살아가길 소망합니다.
+                    </p>
+                </div>
+                <div class="image-container">
+                    <img src="04.jpg" alt="임원선거">
+                </div>
+            </div>
+
+            <!-- Prayer Items -->
+            <div class="prayer-card">
+                <h2 class="prayer-title">감사 & 기도제목</h2>
+                <div class="prayer-list">
+                    <div class="prayer-item">
+                        <div class="prayer-number">1</div>
+                        <div class="prayer-text">믿음의 동료들이 연합하는 아름다움 속에 영생을 누리게 하시니 감사합니다.</div>
+                    </div>
+                    <div class="prayer-item">
+                        <div class="prayer-number">2</div>
+                        <div class="prayer-text">딸이 한국에서 대학생활을 잘 적응하고 필요를 채워주시니 감사합니다.</div>
+                    </div>
+                    <div class="prayer-item">
+                        <div class="prayer-number">3</div>
+                        <div class="prayer-text">저희 부부가 건강관리, 체력관리를 잘하므로 4월 교육선교를 잘 감당케 하소서.</div>
+                    </div>
+                    <div class="prayer-item">
+                        <div class="prayer-number">4</div>
+                        <div class="prayer-text">고2 아들의 유럽비전트립(10월 중. RE-ENTRY 과정)을 위한 항공권 및 여비가 잘 채워지게 하소서.</div>
+                    </div>
+                    <div class="prayer-item">
+                        <div class="prayer-number">5</div>
+                        <div class="prayer-text">하나님을 향한 신뢰와 순종, 기도의 무릎이 약해지지 않게 하소서.</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 UBMK. All rights reserved.</p>
+        </footer>
+    </div>
+</div>
+
+</body>
+</html>
