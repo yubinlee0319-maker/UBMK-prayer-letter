@@ -1,0 +1,369 @@
+:root {
+    --primary-color: #3b82f6;
+    --primary-dark: #1d4ed8;
+    --accent-color: #ef4444;
+    --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --radius: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.main-wrapper {
+    width: 100%;
+    max-width: 900px;
+}
+
+.glass-container {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+header {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/header.png') center/cover;
+    padding: 100px 40px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.header-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.8rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.header-content p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    opacity: 1;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+main {
+    padding: 50px 40px;
+}
+
+.section {
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.section.reverse {
+    grid-template-columns: 1fr 1fr;
+}
+
+.image-container {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.image-container:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-lg);
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text-content {
+    padding: 20px 0;
+}
+
+.number-badge {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 15px;
+    word-break: keep-all;
+}
+
+.section-text {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    text-align: left;
+    word-break: keep-all;
+    white-space: pre-wrap;
+}
+
+.prayer-card {
+    background: #f5f3ff;
+    border-radius: var(--radius);
+    padding: 40px;
+    margin-top: 40px;
+    border: 2px solid #ddd6fe;
+    position: relative;
+}
+
+.prayer-card::before {
+    content: '📖';
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    background: #f5f3ff;
+    padding: 0 15px;
+}
+
+.prayer-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #4338ca;
+    margin-bottom: 30px;
+}
+
+.prayer-list {
+    list-style: none;
+}
+
+.prayer-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ddd6fe;
+}
+
+.prayer-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.prayer-number {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: #4338ca;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-right: 15px;
+    margin-top: 3px;
+}
+
+.prayer-text {
+    font-size: 1rem;
+    color: var(--text-main);
+    font-weight: 400;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .section.reverse {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .header-content h1 {
+        font-size: 2.5rem;
+    }
+    main {
+        padding: 30px 20px;
+    }
+}
+
+/* --- List page --- */
+.issue-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.issue-card {
+    display: block;
+    padding: 24px 28px;
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: var(--text-main);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.issue-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.issue-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+}
+
+.issue-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 60px 20px;
+}
+
+/* --- Admin form --- */
+.admin-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.admin-card {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: 32px;
+    margin-bottom: 24px;
+}
+
+.field {
+    margin-bottom: 18px;
+}
+
+.field label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
+.field input[type="text"],
+.field input[type="password"],
+.field textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.field textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.section-block {
+    border: 1px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn:hover { background: var(--primary-dark); }
+
+.btn.secondary {
+    background: #e2e8f0;
+    color: var(--text-main);
+}
+
+.btn.danger {
+    background: var(--accent-color);
+}
+
+.btn-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.hint {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: -8px;
+    margin-bottom: 14px;
+}
+
+.status-msg {
+    margin-top: 14px;
+    font-size: 0.9rem;
+}
+
+.status-msg.error { color: var(--accent-color); }
+.status-msg.success { color: #10b981; }
